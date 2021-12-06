@@ -27,10 +27,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        
+
         binding.getAdviceBt.setOnClickListener {
             requestAPI()
-            binding.adviceTV.setText(currentAdvice)
         }
     }
 
@@ -58,7 +57,7 @@ class MainActivity : AppCompatActivity() {
         withContext(Main){
         val jason = JSONObject(result)
             currentAdvice = jason.getJSONObject("slip").getString("advice")
-            println(jason.getJSONObject("slip").getString("advice"))
+            binding.adviceTV.setText(currentAdvice)
         }
     }
 }
